@@ -9,7 +9,6 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 })
 export class CronometroComponent implements OnInit, OnDestroy {
 
-  @Input() volta: any;
   laps: any = [];
   timeLeft: number = 0;
   interval: any;
@@ -25,9 +24,6 @@ export class CronometroComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.timer.list().subscribe(response => {
-      console.log(response.status);
-    });
   }
 
   start() {
@@ -46,8 +42,8 @@ export class CronometroComponent implements OnInit, OnDestroy {
   }
 
   marcarVolta() {
-    this.laps.push(this.timer.timeList);
-    console.log(this.timer.timeList);
+    this.laps.push(this.timeLeft);
+    console.log(this.timeLeft);
   }
 
 }

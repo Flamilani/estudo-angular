@@ -1,3 +1,3 @@
 export interface Timer {
-  timeLeft: string;
+  timeLeft: number;
 }
