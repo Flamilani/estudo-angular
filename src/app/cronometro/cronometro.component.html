@@ -1,8 +1,14 @@
 <p>{{ timeLeft | formatTime }}</p>
-<button (click)="start()">Start</button>
-<button (click)="pause()">Pause</button>
+<button [hidden]="!hideIniciar" (click)="start()">Iniciar</button>
+<button [hidden]="hideRetomar" (click)="start()">
+  Retomar
+</button>
+<button [hidden]="hidePausar" (click)="pause()">
+  Pausar
+</button>
+<button [hidden]="hideReiniciar" (click)="reset()">Reiniciar</button>
 
-<button (click)="marcarVolta()">Marcar Volta</button>
+<button [hidden]="hideVolta" (click)="marcarVolta()">Marcar Volta</button>
 
 <div *ngFor="let volta of laps; let i = index">
   <p>Volta {{ i + 1 }} - {{ volta | formatTime }}</p>
