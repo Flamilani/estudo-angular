@@ -1,0 +1,56 @@
+.container {
+  margin: 20px;
+  text-align: center;
+}
+
+.time {
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.btn {
+  border: none;
+  border-radius: 7px;
+  color: #fff;
+  padding: 7px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.btn-blue {
+  background-color: #0076E2;
+}
+
+.btn-lightblue {
+  background-color: lightskyblue;
+  color: #333;
+  margin-right: 10px;
+}
+
+.btn-red {
+  background-color: red;
+  margin-left: 10px;
+}
+
+.titleLaps {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.listLaps {
+  height: 150px;
+  width: 180px;
+  overflow: auto;
+  display: inline-block;
+  background-color: #333;
+  padding: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  font-size: 18px;
+}
