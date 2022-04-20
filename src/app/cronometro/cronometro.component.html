@@ -19,8 +19,8 @@
   </button>
   <div class="titleLaps" [hidden]="titleLaps">Voltas</div>
   <div class="listLaps" [style.display]="displayLaps">
-    <div *ngFor="let volta of laps | reverse let i = index" [attr.data-index]="i">
-      <p>Volta {{ totalLaps - i }} - {{ volta | formatTime }}</p>
+    <div *ngFor="let volta of laps | reverse let i = index">
+      <p>Volta {{ laps.length - i }} - {{ volta | formatTime }}</p>
     </div>
   </div>
 </div>
