@@ -2,25 +2,22 @@
   <h1>Cronômetro</h1>
 
   <p class="time">{{ timeLeft | formatTime }}</p>
-  <button class="btn btn-blue" [hidden]="!hideStart" (click)="start()">
+  <button class="btn btn-blue" (click)="start()">
     Iniciar
   </button>
-  <button class="btn btn-lightblue" [hidden]="hideResume" (click)="start()">
-    Retomar
-  </button>
-  <button class="btn btn-lightblue" [hidden]="hidePause" (click)="pause()">
+  <button class="btn btn-lightblue" (click)="pause()">
     Pausar
   </button>
-  <button class="btn btn-red" [hidden]="hideReset" (click)="reset()">
+  <button class="btn btn-red" (click)="reset()">
     Reiniciar
   </button>
-  <button class="btn btn-blue" [hidden]="hideLaps" (click)="markLap()">
+  <button class="btn btn-blue" (click)="markLap()">
     Marcar Volta
   </button>
-  <div class="titleLaps" [hidden]="titleLaps">Voltas</div>
-  <div class="listLaps" [style.display]="displayLaps">
-    <div *ngFor="let volta of laps | reverse let i = index">
-      <p>Volta {{ laps.length - i }} - {{ volta | formatTime }}</p>
+  <div class="titleLaps">Voltas</div>
+  <div class="listLaps">
+    <div *ngFor="let volta of laps; let i = index">
+      <p>Volta {{ i + 1 }} - {{ volta | formatTime }}</p>
     </div>
   </div>
 </div>
