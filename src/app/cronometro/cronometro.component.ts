@@ -13,11 +13,14 @@ export class CronometroComponent implements OnInit, OnDestroy {
   timeLeft: number = 0;
   interval: any;
 
-  hideIniciar: boolean = false;
-  hidePausar: boolean = false;
-  hideRetomar: boolean = false;
-  hideReiniciar: boolean = false;
-  hideVolta: boolean = false;
+  totalLaps: number = this.laps.length;
+  hideStart: boolean = false;
+  hidePause: boolean = false;
+  hideResume: boolean = false;
+  hideReset: boolean = false;
+  hideLaps: boolean = false;
+  titleLaps: boolean = false;
+  displayLaps: string = '';
 
   minutes: any = '00';
   seconds: any = '00';
@@ -30,20 +33,23 @@ export class CronometroComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.hideIniciar = true;
-    this.hideRetomar = true;
-    this.hidePausar = true;
-    this.hideReiniciar = true;
-    this.hideVolta = true;
+    this.hideStart = true;
+    this.hideResume = true;
+    this.hidePause = true;
+    this.hideReset = true;
+    this.hideLaps = true;
+    this.titleLaps = true;
+    this.displayLaps = 'none';
+
   }
 
   start() {
     if (!this.interval) {
-      this.hideIniciar = false;
-      this.hidePausar = false;
-      this.hideRetomar = true;
-      this.hideReiniciar = true;
-      this.hideVolta = false;
+      this.hideStart = false;
+      this.hidePause = false;
+      this.hideResume = true;
+      this.hideReset = true;
+      this.hideLaps = false;
       this.interval = setInterval(() => {
         this.timeLeft++;
       }, 100);
@@ -52,25 +58,29 @@ export class CronometroComponent implements OnInit, OnDestroy {
 
   pause() {
     if (this.interval) {
-      this.hideRetomar = false;
-      this.hidePausar = true;
-      this.hideReiniciar = false;
-      this.hideVolta = true;
+      this.hideResume = false;
+      this.hidePause = true;
+      this.hideReset = false;
+      this.hideLaps = true;
       clearInterval(this.interval);
       this.interval = undefined;
     }
   }
 
   reset() {
-    this.hideIniciar = true;
-    this.hideReiniciar = true;
-    this.hideRetomar = true;
-    this.hideVolta = true;
+    this.hideStart = true;
+    this.hideReset = true;
+    this.hideResume = true;
+    this.hideLaps = true;
     this.timeLeft = 0;
+    this.titleLaps = true;
+    this.displayLaps = 'none';
     this.laps = [];
   }
 
-  marcarVolta() {
+  markLap() {
+    this.titleLaps = false;
+    this.displayLaps = 'inline-block';
     this.laps.push(this.timeLeft);
   }
 

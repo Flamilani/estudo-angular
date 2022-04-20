@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { CronometroComponent } from './cronometro/cronometro.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormatTimePipe } from './cronometro/format-time.pipe';
+import { FormatTimePipe } from './cronometro/pipes/format-time.pipe';
+import { ReversePipe } from './cronometro/pipes/reverse.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CronometroComponent,
-    FormatTimePipe
+    FormatTimePipe,
+    ReversePipe
   ],
   imports: [
     BrowserModule,
